@@ -1,7 +1,19 @@
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("http://localhost:3000").AllowAnyHeader()
+                                .AllowAnyMethod()
+                                .AllowAnyHeader();//aded this Camila
+                          //policy.SetIsOriginAllowed(origin=>new Uri(origin).Host == "localhost");
+                      });
+});
 
 // Add services to the container.
 builder.Services.AddControllers();
