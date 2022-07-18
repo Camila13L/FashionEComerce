@@ -8,6 +8,8 @@ import {
     CardHeader,
     Avatar,
 } from "@mui/material";
+import { Link } from "react-router-dom";
+
 function ProductCard({ product }) {
     return (
         <Card sx={{ maxWidth: 345 }}>
@@ -36,8 +38,14 @@ function ProductCard({ product }) {
                 </Typography>
             </CardContent>
             <CardActions>
+                <Button 
+                  component={Link}
+                  to={`/catalog/${product.id}`}
+                  size="small"
+                >
+                    View
+                </Button>
                 <Button size="small">Add to card</Button>
-                <Button size="small">View</Button>
             </CardActions>
         </Card>
     );
