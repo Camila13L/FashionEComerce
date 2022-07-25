@@ -42,7 +42,6 @@ function Header({ darkMode, handleChange }) {
                     />
                     <Typography
                         variant="h6"
-                        exact
                         component={NavLink}
                         to="/"
                         sx={navStyles}

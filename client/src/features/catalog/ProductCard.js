@@ -42,6 +42,7 @@ function ProductCard({ product }) {
                   component={Link}
                   to={`/catalog/${product.id}`}
                   size="small"
+                  exact="true"
                 >
                     View
                 </Button>
