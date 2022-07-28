@@ -8,7 +8,7 @@ function ServerError() {
         <Container component={Paper}>
             {state?.error ? (
                 <>
-                    <Typography variant="h5" gutterBottom>Server Error</Typography>
+                    <Typography variant="h3" color='error' gutterBottom>Server Error</Typography>
                     <Divider/>
                     <Typography>{state.error || "internal server error"}</Typography>
                 </>

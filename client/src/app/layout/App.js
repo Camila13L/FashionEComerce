@@ -11,6 +11,7 @@ import AboutPage from "../../features/about/AboutPage"
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ServerError from '../errors/ServerError';
+import NotFund from '../errors/NotFund';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -34,12 +35,13 @@ function App() {
       <Header darkMode={darkMode} handleChange={handleChange} />
       <Container>
         <Routes>
-          <Route path="/" element={<HomePage/>} />
-          <Route path='/catalog' element={<Catalog/>} />
+          <Route exact path="/" element={<HomePage/>} />
+          <Route exact path='/catalog' element={<Catalog/>} />
           <Route path='/catalog/:id' element={<ProductDetail/>} />
           <Route path='/about' element={<AboutPage/>} />
           <Route path='/contact' element={<ContactPage/>} />
           <Route path='/server-error' element={<ServerError/>} />
+          <Route path="*" element={<NotFund/>} />
         </Routes>
       </Container>
     </ThemeProvider>

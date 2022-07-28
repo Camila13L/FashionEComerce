@@ -2,6 +2,8 @@ import { Divider, Grid, Table, TableBody, TableCell, TableContainer, TableRow, T
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import agent from "../../app/api/agent";
+import NotFund from "../../app/errors/NotFund";
+import LoadingComponents from "../../app/layout/Loadingcomponents"
 function ProductDetail() {
     const [product, setProduct] = useState(null);
     const [loading, setloading] = useState(true);
@@ -14,8 +16,8 @@ function ProductDetail() {
             .finally(() => setloading(false));
     },[id])
     
-    if (loading) return <h3>loasing ...</h3>
-    if (!product) return <h3>product not fund</h3>
+    if (loading) return <LoadingComponents message={"Product loading..."}/>
+    if (!product) return <NotFund/>
 
     return (
         <Grid container spacing={6}>

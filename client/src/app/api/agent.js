@@ -2,13 +2,14 @@ import axios from "axios";
 import { toast } from "react-toastify";
 // import { useNavigate } from 'react-router-dom';
 
+const sleep = () => new Promise(resolve => setTimeout(resolve, 500));
+
 axios.defaults.baseURL = "https://localhost:7029/api/";
 
 const responseBody = ( response ) => response.data;
 
-
-
-axios.interceptors.response.use(response => {
+axios.interceptors.response.use( async response => {
+    await sleep();
     return response;
 }, (error) => {
     // let history = useNavigate();
