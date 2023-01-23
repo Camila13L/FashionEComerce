@@ -13,11 +13,11 @@ namespace API.Controllers
             _context = context;
         }
 
-       [HttpGet]
-       public async Task<ActionResult<Basket>> GetBasket()
-       {
-        var baskets = await _context.Baskets
-            .FirstOrDefaultAsync(x => x.BuyerId == Request.Cookies["buyerId"]);
-       }
+        //    [HttpGet]
+        //    public async Task<ActionResult<Basket>> GetBasket()
+        //    {
+        //     var baskets = await _context.Baskets
+        //         .FirstOrDefaultAsync(x => x.BuyerId == Request.Cookies["buyerId"]);
+        //    }
     }
 }
